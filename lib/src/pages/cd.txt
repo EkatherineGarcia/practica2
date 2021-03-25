@@ -1,0 +1,33 @@
+ Container(
+              width: 250.0,
+              height: 100.0,
+              decoration: BoxDecoration(
+                border:
+                    Border.all(color: Colors.blue, style: BorderStyle.solid),
+              ),
+              child: RaisedButton(
+                  color: Colors.pink.shade500,
+                  textColor: Colors.white,
+                  onPressed: () {
+                    if (formKey.currentState.validate()) {
+                      formKey.currentState.save();
+                      if (nombre.compareTo('Ekatherine Garcia') == 0 &&
+                          direccion.compareTo('Esperanza no.2') == 0 &&
+                          postal.compareTo('76805') == 0 &&
+                          email.compareTo('eka@gmail.com') == 0 &&
+                          password.compareTo('eka123') == 0) {
+                        Navigator.pushNamed(context, 'formulario_dos',
+                            arguments: Argumentos(
+                                nombre: this.nombre,
+                                direccion: this.direccion,
+                                postal: this.postal,
+                                email: this.email,
+                                password: this.password));
+                      } else {
+                        print('Datos incorrectos');
+                      }
+                    }
+                  },
+                  child: Text('Registrarse'),
+                ),
+            ),
